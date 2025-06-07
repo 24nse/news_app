@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/article_model.dart';
+import 'package:news_app/widgets/custom_text.dart';
 
 class NewsTile extends StatelessWidget {
   const NewsTile({super.key, required this.articleModel});
@@ -13,7 +14,7 @@ class NewsTile extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.network(
-            articleModel.image!,
+            articleModel.image??"assets\technology.jpeg",
             height: 200,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -21,8 +22,8 @@ class NewsTile extends StatelessWidget {
           
         ),
         const SizedBox(height: 12,),
-        Text(
-          articleModel.title,
+        CustomText(
+         text:  articleModel.title,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: const TextStyle(
@@ -31,8 +32,8 @@ class NewsTile extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8,),
-        Text(
-          articleModel.subTitle??"",
+        CustomText(
+         text:  articleModel.subTitle??"assets\technology.jpeg",
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: const TextStyle(
